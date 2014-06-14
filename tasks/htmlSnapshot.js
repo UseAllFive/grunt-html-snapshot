@@ -43,8 +43,8 @@ module.exports = function(grunt) {
         };
 
         phantom.on(taskChannelPrefix + ".error.onError", function (msg, trace) {
-            phantom.halt();
-            grunt.warn('error: ' + msg, 6);
+            // phantom.halt();
+            grunt.log.writeln('error: ' + msg);
         });
 
         phantom.on(taskChannelPrefix + ".console", function (msg, trace) {
