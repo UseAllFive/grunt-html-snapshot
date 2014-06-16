@@ -20,8 +20,11 @@ var sendMessage = function (arg) {
 };
 
 var sanitizeHtml = function(html,options){
-    //remove weird pseudo new lines and tabs
-     html = html.replace(/\\n|\\t/g,"");
+    // unescape newlines
+    html = html.replace(/\\n/g,"\n");
+    // remove escaped tabs
+    html = html.replace(/\\t/g,"");
+
     // add a custom attribute if so required
     if (options.bodyAttr)
         html = html.replace(/<body/,"<body " + options.bodyAttr + "='" + options.bodyAttr + "' ");
